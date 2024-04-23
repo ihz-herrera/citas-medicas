@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Presentacion.Entidades
 {
-    public class Cliente
+    public class Doctor
     {
-        public int Id { get; set; }
+
+        public string Cedula { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
-        public int Edad { get; set; }
+        public string Telefono { get; set; }
 
-        public override string ToString()
+        override public string ToString()
         {
-            return $"{Id},{Nombre},{Email},{Edad}";
+            return $"{Cedula},{Nombre},{Email},{Telefono}";
         }
     }
 }

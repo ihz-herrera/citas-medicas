@@ -1,6 +1,6 @@
 ﻿namespace BISoft.Consultorio.Presentacion
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,31 +29,56 @@
         private void InitializeComponent()
         {
             btnClientes = new Button();
+            btnDoctores = new Button();
+            btnCitas = new Button();
             SuspendLayout();
             // 
             // btnClientes
             // 
-            btnClientes.Location = new Point(58, 53);
+            btnClientes.Location = new Point(58, 12);
             btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(124, 37);
+            btnClientes.Size = new Size(124, 92);
             btnClientes.TabIndex = 0;
             btnClientes.Text = "Clientes";
             btnClientes.UseVisualStyleBackColor = true;
             btnClientes.Click += btnClientes_Click;
+            // 
+            // btnDoctores
+            // 
+            btnDoctores.Location = new Point(58, 110);
+            btnDoctores.Name = "btnDoctores";
+            btnDoctores.Size = new Size(124, 92);
+            btnDoctores.TabIndex = 1;
+            btnDoctores.Text = "Doctores";
+            btnDoctores.UseVisualStyleBackColor = true;
+            btnDoctores.Click += btnDoctores_Click;
+            // 
+            // btnCitas
+            // 
+            btnCitas.Location = new Point(58, 208);
+            btnCitas.Name = "btnCitas";
+            btnCitas.Size = new Size(124, 92);
+            btnCitas.TabIndex = 2;
+            btnCitas.Text = "Citas";
+            btnCitas.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnCitas);
+            Controls.Add(btnDoctores);
             Controls.Add(btnClientes);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "frmMain";
+            Text = "Inicio de Sesión";
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnClientes;
+        private Button btnDoctores;
+        private Button btnCitas;
     }
 }
