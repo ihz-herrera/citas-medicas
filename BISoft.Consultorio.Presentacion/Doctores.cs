@@ -1,4 +1,5 @@
 ﻿using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Presentacion.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,13 @@ namespace BISoft.Consultorio.Presentacion
 {
     public partial class Doctores : Form
     {
+        private DoctoresRepository _repo;
+
         public Doctores()
         {
             InitializeComponent();
+
+            _repo = new DoctoresRepository();
         }
 
 
@@ -33,7 +38,7 @@ namespace BISoft.Consultorio.Presentacion
             //Validar que la edad sea un numero
             if (!Int64.TryParse(txtTelefono.Text, out Int64 telefono))
             {
-                MessageBox.Show("El telefono debe ser un número");
+                MessageBox.Show("El teléfono debe ser un número");
                 return;
             }
 
@@ -52,7 +57,7 @@ namespace BISoft.Consultorio.Presentacion
 
 
             //Leer el archivo
-            var listaDoctores = CargarDoctores();
+            var listaDoctores = _repo.CargarDoctores();
 
             var existe = listaDoctores
                 .Any(x => x.Cedula == doctor.Cedula);
@@ -62,7 +67,7 @@ namespace BISoft.Consultorio.Presentacion
                 return;
             }
 
-            GuardarDoctor(doctor);
+            _repo.Guardar(doctor);
 
             LimpiarControles();
 
@@ -79,40 +84,9 @@ namespace BISoft.Consultorio.Presentacion
             txtNombre.Text = "";
         }
 
-        private static void GuardarDoctor(Doctor doctor)
+        private void Doctores_Load(object sender, EventArgs e)
         {
-            using (System.IO.StreamWriter file =
-                            new System.IO.StreamWriter("C:\\BaseDatos\\doctores.txt", true))
-            {
-                file.WriteLine(doctor.ToString());
-            }
+            dataGridView1.DataSource = _repo.CargarDoctores();
         }
-
-        private List<Doctor> CargarDoctores()
-        {
-
-            var clientes = new List<Doctor>();
-
-            using (System.IO.StreamReader file =
-                                           new System.IO.StreamReader("C:\\BaseDatos\\doctores.txt"))
-            {
-                string line;
-                while ((line = file.ReadLine()) != null)
-                {
-                    var doctor = new Doctor();
-                    var datos = line.Split(',');
-                    doctor.Cedula = datos[0];
-                    doctor.Nombre = datos[1];
-                    doctor.Email = datos[2];
-                    doctor.Telefono = datos[3];
-
-                    clientes.Add(doctor);
-                }
-            }
-
-            return clientes;
-        }
-
-
     }
 }

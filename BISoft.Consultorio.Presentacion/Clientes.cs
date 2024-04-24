@@ -1,4 +1,5 @@
 ﻿using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Presentacion.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,14 +15,20 @@ namespace BISoft.Consultorio.Presentacion
 {
     public partial class Clientes : Form
     {
+
+
+        private ClientesRepository _repo;
+
         public Clientes()
         {
             InitializeComponent();
+
+            _repo = new ClientesRepository();
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            var listaClientes = CargarClientes();
+            var listaClientes = _repo.CargarClientes();
 
             dataGridView1.DataSource = listaClientes;
         }
@@ -65,7 +72,7 @@ namespace BISoft.Consultorio.Presentacion
 
 
             //Leer el archivo
-            var listaClientes = CargarClientes();
+            var listaClientes = _repo.CargarClientes();
 
             var existe = listaClientes
                 .Any(x => x.Email == cliente.Email);
@@ -75,7 +82,7 @@ namespace BISoft.Consultorio.Presentacion
                 return;
             }
 
-            GuardarCliente(cliente);
+            _repo.Guardar(cliente);
 
             LimpiarControles();
 
@@ -92,38 +99,6 @@ namespace BISoft.Consultorio.Presentacion
             txtNombre.Text = "";
         }
 
-        private static void GuardarCliente(Cliente cliente)
-        {
-            using (System.IO.StreamWriter file =
-                            new System.IO.StreamWriter("C:\\BaseDatos\\clientes.txt", true))
-            {
-                file.WriteLine(cliente.ToString());
-            }
-        }
-
-        private List<Cliente> CargarClientes()
-        {
-
-            var clientes = new List<Cliente>();
-
-            using (System.IO.StreamReader file =
-                                           new System.IO.StreamReader("C:\\BaseDatos\\clientes.txt"))
-            {
-                string line;
-                while ((line = file.ReadLine()) != null)
-                {
-                    var cliente = new Cliente();
-                    var datos = line.Split(',');
-                    cliente.Id = int.Parse(datos[0]);
-                    cliente.Nombre = datos[1];
-                    cliente.Email = datos[2];
-                    cliente.Edad = int.Parse(datos[3]);
-
-                    clientes.Add(cliente);
-                }
-            }
-
-            return clientes;
-        }
+      
     }
 }

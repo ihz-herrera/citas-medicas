@@ -111,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 235);
+            ClientSize = new Size(751, 235);
             Controls.Add(btnGuardar);
             Controls.Add(label3);
             Controls.Add(dtpFecha);
@@ -122,6 +122,7 @@
             Controls.Add(cmbClientes);
             Name = "Citas";
             Text = "Citas";
+            Load += Citas_Load;
             ((System.ComponentModel.ISupportInitialize)dtgCitas).EndInit();
             ResumeLayout(false);
             PerformLayout();

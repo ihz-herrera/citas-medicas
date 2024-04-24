@@ -141,6 +141,7 @@
             Controls.Add(txtCedula);
             Name = "Doctores";
             Text = "Doctores";
+            Load += Doctores_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
