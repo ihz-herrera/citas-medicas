@@ -19,6 +19,8 @@ namespace BISoft.Consultorio.Presentacion.Fabricas
                      return new ClientesLiteRepository();
                 case "Txt":
                      return new ClientesTxtRepository();
+                case "MSSQL":
+                    return new ClientesMSSQLRepository();
                 default:
                     return new ClientesLiteRepository();
             };

@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.FlatFile\Bisoft.Consultorio.Infraestructura.FlatFile.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLite\Bisoft.Consultorio.Infraestructura.SQLite.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLServer\Bisoft.Consultorio.Infraestructura.SQLServer.csproj" />
   </ItemGroup>
 
 </Project>

@@ -25,7 +25,7 @@ namespace BISoft.Consultorio.Presentacion.Entidades
         public Cliente(int id, string nombre, string email, int edad)
         {
             Id =  id.NotZero(nameof(id)).NotNegative(nameof(id));
-            Nombre = nombre.LengthBetween(nameof(nombre),25,5);
+            Nombre = nombre.LengthBetween(nameof(nombre),25,2);
             Email = email.NotNullOrEmpty(nameof(email));
             Edad = edad.NotNegative(nameof(edad));
                 

@@ -69,7 +69,7 @@ namespace Bisoft.Consultorio.Dominio.Guards
 
         public static string LengthBetween(this string value, string name, int max,int min)
         {
-            if (value.Length < min && value.Length > max)
+            if (value.Length < min || value.Length > max)
             {
                 throw new ArgumentException($"El valor de {name} debe de tener entre {min} y {max} caracteres");
             }

@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bisoft.Consultorio.Aplicacion\Bisoft.Consultorio.Aplicacion.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.FlatFile\Bisoft.Consultorio.Infraestructura.FlatFile.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLite\Bisoft.Consultorio.Infraestructura.SQLite.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLServer\Bisoft.Consultorio.Infraestructura.SQLServer.csproj" />
   </ItemGroup>
 
 </Project>

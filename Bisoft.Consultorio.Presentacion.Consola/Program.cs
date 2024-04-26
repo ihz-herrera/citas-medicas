@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using Bisoft.Consultorio.Aplicacion.Servicio;
 using BISoft.Consultorio.Presentacion.Entidades;
 
 Console.WriteLine("Hello, World!");
@@ -8,11 +9,13 @@ Console.WriteLine("Hello, World!");
 
 try
 {
-	var cliente = new Cliente(2, "Ivan", "kj",25 );
+
+    var servicio = new ClienteService("MSSQL");
+	servicio.GuardarCliente( "Ivanhh", "kj@",25 );
 
   
 
-    Console.WriteLine(cliente.Nombre);
+    Console.WriteLine("El cliente se guardo satisfactoriamente");
 }
 catch (Exception ex)
 {

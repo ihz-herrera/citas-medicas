@@ -1,18 +1,4 @@
-﻿using BISoft.Consultorio.Presentacion.Contratos;
-using BISoft.Consultorio.Presentacion.Entidades;
-using BISoft.Consultorio.Presentacion.Fabricas;
-using BISoft.Consultorio.Presentacion.Repositorios;
-using SQLitePCL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Bisoft.Consultorio.Aplicacion.Servicio;
 
 namespace BISoft.Consultorio.Presentacion
 {
@@ -20,74 +6,48 @@ namespace BISoft.Consultorio.Presentacion
     {
 
 
-        private IClientesRepository _repo;
+        private ClienteService _clienteService;
 
         public Clientes()
         {
             InitializeComponent();
-
-            _repo = ClientesContextFabrik.CrearClientesRespository("Lite");
+            _clienteService = new ClienteService("Txt");
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            var listaClientes = _repo.CargarClientes();
-            dataGridView1.DataSource = listaClientes;
+
+            try
+            {
+                var listaClientes = _clienteService.CargarClientes();
+                dataGridView1.DataSource = listaClientes;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ha ocurrido un error:{ex.Message}");
+            }
 
         }
       
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //Validar que los campos no esten vacios
-            if (string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtEdad.Text))
+            try
             {
-                MessageBox.Show("Todos los campos son requeridos");
-                return;
-            }
+                //Guardar datos en un archivo de texto
+                _clienteService.GuardarCliente(
+                    txtNombre.Text,
+                    txtEmail.Text,
+                    Convert.ToInt32(txtEdad.Text)
+                    );
 
-            //Validar que la edad sea un numero
-            if (!int.TryParse(txtEdad.Text, out int edad))
+                LimpiarControles();
+
+                MessageBox.Show("Datos guardados correctamente");
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("La edad debe ser un numero");
-                return;
+                MessageBox.Show($"Ha ocurrido un error:{ex.Message}");
             }
-
-            //Validar que el Id sea un numero
-            if (!int.TryParse(txtId.Text, out int id))
-            {
-                MessageBox.Show("El Id debe ser un numero");
-                return;
-            }
-
-            //Guardar datos en un archivo de texto
-            var cliente = new Cliente
-            (
-                id,
-                txtNombre.Text,
-                txtEmail.Text,
-                edad
-            );
-
-            var datos = cliente.ToString();
-
-
-            //Leer el archivo
-            var listaClientes = _repo.CargarClientes();
-
-            var existe = listaClientes
-                .Any(x => x.Email == cliente.Email);
-            if (existe)
-            {
-                MessageBox.Show("El email ya existe");
-                return;
-            }
-
-            _repo.Guardar(cliente);
-
-            LimpiarControles();
-
-            MessageBox.Show("Datos guardados correctamente");
-
 
         }
 
