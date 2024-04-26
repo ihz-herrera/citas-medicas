@@ -61,12 +61,12 @@ namespace BISoft.Consultorio.Presentacion
 
             //Guardar datos en un archivo de texto
             var cliente = new Cliente
-            {
-                Id = id,
-                Nombre = txtNombre.Text,
-                Email = txtEmail.Text,
-                Edad = edad
-            };
+            (
+                id,
+                txtNombre.Text,
+                txtEmail.Text,
+                edad
+            );
 
             var datos = cliente.ToString();
 

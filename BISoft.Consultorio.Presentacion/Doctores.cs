@@ -46,12 +46,12 @@ namespace BISoft.Consultorio.Presentacion
 
             //Guardar datos en un archivo de texto
             var doctor = new Doctor
-            {
-                Cedula = txtCedula.Text,
-                Nombre = txtNombre.Text,
-                Email = txtEmail.Text,
-                Telefono = telefono.ToString()
-            };
+            (
+                cedula : txtCedula.Text,
+                nombre : txtNombre.Text,
+                email : txtEmail.Text,
+                telefono : telefono.ToString()
+            );
 
             var datos = doctor.ToString();
 

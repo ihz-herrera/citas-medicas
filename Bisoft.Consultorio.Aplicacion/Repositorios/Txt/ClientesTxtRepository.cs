@@ -8,35 +8,33 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Presentacion.Repositorios
 {
-    public class DoctoresTxtRepository : Repository<Doctor> , IDoctoresRepository
+    public class ClientesTxtRepository : Repository<Cliente>, IClientesRepository
     {
+        private string _path = "C:\\BaseDatos\\cliente.txt";
 
-        private string _path = "C:\\BaseDatos\\doctor.txt";
-
-        public DoctoresTxtRepository() : base("C:\\BaseDatos\\")
-        {
-
-        }
-
-        public DoctoresTxtRepository(string path) : base(path)
+        public ClientesTxtRepository(string path) : base(path)
         {
             _path = path;
         }
 
+        public ClientesTxtRepository() : base("C:\\BaseDatos\\")
+        {
 
-        //public void GuardarDoctor(Doctor doctor)
+        }
+
+        //public  void GuardarCliente(Cliente cliente)
         //{
         //    using (System.IO.StreamWriter file =
         //                    new System.IO.StreamWriter(_path, true))
         //    {
-        //        file.WriteLine(doctor.ToString());
+        //        file.WriteLine(cliente.ToString());
         //    }
         //}
 
-        public List<Doctor> CargarDoctores()
+        public List<Cliente> CargarClientes()
         {
 
-            var clientes = new List<Doctor>();
+            var clientes = new List<Cliente>();
 
             using (StreamReader file =
                                            new StreamReader(_path))
@@ -44,20 +42,22 @@ namespace BISoft.Consultorio.Presentacion.Repositorios
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    var doctor = new Doctor();
+                    
                     var datos = line.Split(',');
-                    doctor.Cedula = datos[0];
-                    doctor.Nombre = datos[1];
-                    doctor.Email = datos[2];
-                    doctor.Telefono = datos[3];
 
-                    clientes.Add(doctor);
+                    var cliente = new Cliente(
+                    int.Parse(datos[0])
+                    ,datos[1]
+                    ,datos[2]
+                    ,int.Parse(datos[3])
+                        );
+
+                    clientes.Add(cliente);
                 }
             }
 
             return clientes;
         }
-
 
     }
 }

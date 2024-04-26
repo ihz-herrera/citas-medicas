@@ -8,33 +8,35 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Presentacion.Repositorios
 {
-    public class ClientesTxtRepository : Repository<Cliente>, IClientesRepository
+    public class DoctoresTxtRepository : Repository<Doctor> , IDoctoresRepository
     {
-        private string _path = "C:\\BaseDatos\\cliente.txt";
 
-        public ClientesTxtRepository(string path) : base(path)
+        private string _path = "C:\\BaseDatos\\doctor.txt";
+
+        public DoctoresTxtRepository() : base("C:\\BaseDatos\\")
+        {
+
+        }
+
+        public DoctoresTxtRepository(string path) : base(path)
         {
             _path = path;
         }
 
-        public ClientesTxtRepository() : base("C:\\BaseDatos\\")
-        {
 
-        }
-
-        //public  void GuardarCliente(Cliente cliente)
+        //public void GuardarDoctor(Doctor doctor)
         //{
         //    using (System.IO.StreamWriter file =
         //                    new System.IO.StreamWriter(_path, true))
         //    {
-        //        file.WriteLine(cliente.ToString());
+        //        file.WriteLine(doctor.ToString());
         //    }
         //}
 
-        public List<Cliente> CargarClientes()
+        public List<Doctor> CargarDoctores()
         {
 
-            var clientes = new List<Cliente>();
+            var doctores = new List<Doctor>();
 
             using (StreamReader file =
                                            new StreamReader(_path))
@@ -42,19 +44,18 @@ namespace BISoft.Consultorio.Presentacion.Repositorios
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
-                    var cliente = new Cliente();
                     var datos = line.Split(',');
-                    cliente.Id = int.Parse(datos[0]);
-                    cliente.Nombre = datos[1];
-                    cliente.Email = datos[2];
-                    cliente.Edad = int.Parse(datos[3]);
+                    var doctor = new Doctor(datos[0],
+                        datos[1],datos[2], datos[3]);
+                   
 
-                    clientes.Add(cliente);
+                    doctores.Add(doctor);
                 }
             }
 
-            return clientes;
+            return doctores;
         }
+
 
     }
 }

@@ -21,7 +21,13 @@ namespace BISoft.Consultorio.Presentacion.Contexto
              string connectionString = "data source = C:\\BaseDatos\\consultorio.db";
              optionsBuilder.UseSqlite(connectionString);
 
+            var cadena = "";
+
+           
+
+
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
