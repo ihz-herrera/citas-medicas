@@ -19,10 +19,12 @@ namespace BISoft.Consultorio.Presentacion
             frmDoctores.Show();
         }
 
-        private void btnCitas_Click(object sender, EventArgs e)
+        private void btnCitas_Click_1(object sender, EventArgs e)
         {
             var frmCitas = new Citas();
             frmCitas.Show();
         }
+
+        
     }
 }

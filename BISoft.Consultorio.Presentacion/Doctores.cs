@@ -14,13 +14,13 @@ namespace BISoft.Consultorio.Presentacion
 {
     public partial class Doctores : Form
     {
-        private DoctoresRepository _repo;
+        private DoctoresTxtRepository _repo;
 
         public Doctores()
         {
             InitializeComponent();
 
-            _repo = new DoctoresRepository();
+            _repo = new DoctoresTxtRepository();
         }
 
 

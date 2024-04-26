@@ -61,8 +61,9 @@
             btnCitas.TabIndex = 2;
             btnCitas.Text = "Citas";
             btnCitas.UseVisualStyleBackColor = true;
+            btnCitas.Click += btnCitas_Click_1;
             // 
-            // Form1
+            // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -70,7 +71,7 @@
             Controls.Add(btnCitas);
             Controls.Add(btnDoctores);
             Controls.Add(btnClientes);
-            Name = "frmMain";
+            Name = "Main";
             Text = "Inicio de Sesión";
             ResumeLayout(false);
         }

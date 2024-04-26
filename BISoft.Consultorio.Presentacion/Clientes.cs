@@ -1,5 +1,8 @@
-﻿using BISoft.Consultorio.Presentacion.Entidades;
+﻿using BISoft.Consultorio.Presentacion.Contratos;
+using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Presentacion.Fabricas;
 using BISoft.Consultorio.Presentacion.Repositorios;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,27 +20,24 @@ namespace BISoft.Consultorio.Presentacion
     {
 
 
-        private ClientesRepository _repo;
+        private IClientesRepository _repo;
 
         public Clientes()
         {
             InitializeComponent();
 
-            _repo = new ClientesRepository();
+            _repo = ClientesContextFabrik.CrearClientesRespository("Lite");
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
             var listaClientes = _repo.CargarClientes();
-
             dataGridView1.DataSource = listaClientes;
-        }
 
+        }
       
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-
             //Validar que los campos no esten vacios
             if (string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtEdad.Text))
             {

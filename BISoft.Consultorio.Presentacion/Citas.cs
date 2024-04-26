@@ -1,4 +1,5 @@
 ﻿using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Presentacion.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,47 +14,29 @@ namespace BISoft.Consultorio.Presentacion
 {
     public partial class Citas : Form
     {
+
+        private ClientesTxtRepository _clienteRepo;
+        private DoctoresTxtRepository _doctorRepo;
+
         public Citas()
         {
             InitializeComponent();
+
+            _clienteRepo = new ClientesTxtRepository();
+            _doctorRepo = new DoctoresTxtRepository();
         }
 
         private void Citas_Load(object sender, EventArgs e)
         {
-            //List<Cliente> clientes = CargarClientes();
+            cmbClientes.DataSource = _clienteRepo.CargarClientes();
+            cmbClientes.DisplayMember = "Nombre";
+            cmbClientes.ValueMember = "Id";
 
-            //List<Doctor> doctores = CargarDoctores();
-
-            //List<Cita> Citas = CargarCitas();
+            cmbDoctores.DataSource = _doctorRepo.CargarDoctores();
+            cmbDoctores.DisplayMember = "Nombre";
+            cmbDoctores.ValueMember = "Cedula";
         }
 
-        //private List<Cita> CargarCitas()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
-        //private List<Doctor> CargarDoctores()
-        //{
-        //    //cargar doctores de archivo de texto
-        //    List<Doctor> doctores = new List<Doctor>();
-        //    using (var reader = new StreamReader("doctores.txt"))
-        //    {
-        //        while (!reader.EndOfStream)
-        //        {
-        //            var line = reader.ReadLine();
-        //            var values = line.Split(',');
-        //            doctores.Add(new Doctor { Id = int.Parse(values[0]), Nombre = values[1], Especialidad = values[2] });
-        //        }
-        //    }
-
-        //    return doctores;
-        //}
-
-        //private List<Cliente> CargarClientes()
-        //{
-        //    List<Cliente> clientes = new List<Cliente>();
-
-        //    clientes.Add(new Cliente { Id = 1, Nombre = "Juan Perez", Email = ""})
-        //}
     }
 }

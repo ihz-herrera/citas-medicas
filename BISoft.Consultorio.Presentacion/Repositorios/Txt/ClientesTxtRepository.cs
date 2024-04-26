@@ -1,4 +1,5 @@
-﻿using BISoft.Consultorio.Presentacion.Entidades;
+﻿using BISoft.Consultorio.Presentacion.Contratos;
+using BISoft.Consultorio.Presentacion.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Presentacion.Repositorios
 {
-    public class ClientesRepository: Repository<Cliente>
+    public class ClientesTxtRepository : Repository<Cliente>, IClientesRepository
     {
         private string _path = "C:\\BaseDatos\\cliente.txt";
 
-        public ClientesRepository(string path):base(path)
+        public ClientesTxtRepository(string path) : base(path)
         {
             _path = path;
         }
 
-        public ClientesRepository():base("C:\\BaseDatos\\")
+        public ClientesTxtRepository() : base("C:\\BaseDatos\\")
         {
-            
+
         }
 
         //public  void GuardarCliente(Cliente cliente)
@@ -35,8 +36,8 @@ namespace BISoft.Consultorio.Presentacion.Repositorios
 
             var clientes = new List<Cliente>();
 
-            using (System.IO.StreamReader file =
-                                           new System.IO.StreamReader(_path))
+            using (StreamReader file =
+                                           new StreamReader(_path))
             {
                 string line;
                 while ((line = file.ReadLine()) != null)
