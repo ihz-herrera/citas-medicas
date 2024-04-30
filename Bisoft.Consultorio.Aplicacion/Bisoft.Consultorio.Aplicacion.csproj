@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.FlatFile\Bisoft.Consultorio.Infraestructura.FlatFile.csproj" />
-    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLite\Bisoft.Consultorio.Infraestructura.SQLite.csproj" />
-    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura.SQLServer\Bisoft.Consultorio.Infraestructura.SQLServer.csproj" />
+    <ProjectReference Include="..\Bisoft.Consultorio.Infraestructura\Bisoft.Consultorio.Infraestructura.csproj" />
   </ItemGroup>
 
 </Project>

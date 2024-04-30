@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Infraestructura.Contexto
+namespace BISoft.Consultorio.Infraestructura.SQLServer.Contexto
 {
     public class Context: DbContext
     {
@@ -15,18 +15,10 @@ namespace BISoft.Consultorio.Infraestructura.Contexto
         public DbSet<Doctor> Doctores { get; set; }
 
        
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public Context(DbContextOptions options):base(options)
         {
-             string connectionString = "data source = C:\\BaseDatos\\consultorio.db";
-             optionsBuilder.UseSqlite(connectionString);
-
-            var cadena = "";
-
-           
-
-
         }
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

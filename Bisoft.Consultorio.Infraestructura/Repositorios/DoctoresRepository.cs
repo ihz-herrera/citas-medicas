@@ -2,6 +2,7 @@
 using BISoft.Consultorio.Infraestructura.Contratos;
 using BISoft.Consultorio.Infraestructura.Entidades;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,36 +10,26 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
-    public class ClientesMSSQLRepository : IClientesRepository
+    public class DoctoresRepository : IDoctoresRepository
     {
 
         private Context _context;
 
-
-        //Crear contructor
-        public ClientesMSSQLRepository()
+        public DoctoresRepository(Context context)
         {
-            //Inicializar el contexto
-            _context = new Context();
+            _context = context;
         }
 
-
-
-
-        public List<Cliente> CargarClientes()
+        public List<Doctor> CargarDoctores()
         {
-
-            var clientes = _context.Clientes.ToList();
-
-            return clientes;
+            var doctores = _context.Doctores.ToList();
+            return doctores;
         }
 
-        public void Guardar(Cliente cliente)
+        public void Guardar(Doctor doctor)
         {
-            _context.Clientes.Add(cliente);
-
+            _context.Doctores.Add(doctor);
             _context.SaveChanges();
         }
-
     }
 }

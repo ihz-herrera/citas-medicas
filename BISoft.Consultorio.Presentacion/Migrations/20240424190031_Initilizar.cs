@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BISoft.Consultorio.Presentacion.Migrations
+namespace BISoft.Consultorio.Infraestructura.Migrations
 {
     /// <inheritdoc />
     public partial class Initilizar : Migration

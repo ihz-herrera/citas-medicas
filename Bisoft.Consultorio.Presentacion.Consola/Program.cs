@@ -2,7 +2,7 @@
 
 
 using Bisoft.Consultorio.Aplicacion.Servicio;
-using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Infraestructura.Entidades;
 
 Console.WriteLine("Hello, World!");
 

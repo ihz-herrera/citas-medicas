@@ -1,6 +1,6 @@
 ﻿using BISoft.Consultorio.Infraestructura.SQLServer.Contexto;
-using BISoft.Consultorio.Presentacion.Contratos;
-using BISoft.Consultorio.Presentacion.Entidades;
+using BISoft.Consultorio.Infraestructura.Contratos;
+using BISoft.Consultorio.Infraestructura.Entidades;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Presentacion.Repositorios
+namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
     public class DoctoresMSSQLRepository : IDoctoresRepository
     {

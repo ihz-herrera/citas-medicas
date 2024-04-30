@@ -1,6 +1,6 @@
-﻿using BISoft.Consultorio.Presentacion.Contratos;
-using BISoft.Consultorio.Presentacion.Entidades;
-using BISoft.Consultorio.Presentacion.Fabricas;
+﻿using BISoft.Consultorio.Infraestructura.Contratos;
+using BISoft.Consultorio.Infraestructura.Entidades;
+using BISoft.Consultorio.Infraestructura.Fabricas;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -14,9 +14,9 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
     {
         private readonly IClientesRepository _repo;
 
-        public ClienteService(string repositorio)
+        public ClienteService(IClientesRepository repositorio)
         {
-            _repo = ClientesContextFabrik.CrearClientesRespository(repositorio) ;
+            _repo = repositorio;
         }
 
         public List<Cliente> CargarClientes()
@@ -24,7 +24,16 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
             return _repo.CargarClientes();
         }
 
-        public void GuardarCliente(string nombre, string email, int edad)
+
+        public void GuardarCliente(Cliente cliente)
+        { 
+            _repo.Guardar(cliente);
+            
+        
+        }
+
+
+        public Cliente GuardarCliente(string nombre, string email, int edad)
         {
             //Cargar Clientes en una coleccion
             var clientes = _repo.CargarClientes();
@@ -49,6 +58,8 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
 
             //Guardar el cliente
             _repo.Guardar(cliente);
+
+            return cliente;
 
             
         }

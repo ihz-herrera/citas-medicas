@@ -1,5 +1,5 @@
-﻿using BISoft.Consultorio.Presentacion.Entidades;
-using BISoft.Consultorio.Presentacion.Repositorios;
+﻿using BISoft.Consultorio.Infraestructura.Entidades;
+using BISoft.Consultorio.Infraestructura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BISoft.Consultorio.Presentacion
+namespace BISoft.Consultorio.Infraestructura
 {
     public partial class Citas : Form
     {

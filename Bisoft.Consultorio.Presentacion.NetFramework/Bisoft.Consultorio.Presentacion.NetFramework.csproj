@@ -79,11 +79,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bisoft.Consultorio.Aplicacion\Bisoft.Consultorio.Aplicacion.csproj">
-      <Project>{5d92313a-5f5a-4362-a1a7-b70c83637d2c}</Project>
-      <Name>Bisoft.Consultorio.Aplicacion</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

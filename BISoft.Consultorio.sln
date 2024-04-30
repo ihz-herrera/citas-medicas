@@ -5,19 +5,23 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BISoft.Consultorio.Presentacion", "BISoft.Consultorio.Presentacion\BISoft.Consultorio.Presentacion.csproj", "{E0D81B6E-0EA5-4B7B-A6CB-D8196425FB0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Presentacion.Consola", "Bisoft.Consultorio.Presentacion.Consola\Bisoft.Consultorio.Presentacion.Consola.csproj", "{70225396-3576-411A-A30F-F447F3178DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Presentacion.Consola", "Bisoft.Consultorio.Presentacion.Consola\Bisoft.Consultorio.Presentacion.Consola.csproj", "{70225396-3576-411A-A30F-F447F3178DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Dominio", "Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj", "{00EF30E8-CAF9-44CA-A912-6CABCB397DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Dominio", "Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj", "{00EF30E8-CAF9-44CA-A912-6CABCB397DEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Aplicacion", "Bisoft.Consultorio.Aplicacion\Bisoft.Consultorio.Aplicacion.csproj", "{5D92313A-5F5A-4362-A1A7-B70C83637D2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Aplicacion", "Bisoft.Consultorio.Aplicacion\Bisoft.Consultorio.Aplicacion.csproj", "{5D92313A-5F5A-4362-A1A7-B70C83637D2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Infraestructura.FlatFile", "Bisoft.Consultorio.Infraestructura.FlatFile\Bisoft.Consultorio.Infraestructura.FlatFile.csproj", "{309F4673-C421-4649-BC68-748D1BF497F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Infraestructura.FlatFile", "Bisoft.Consultorio.Infraestructura.FlatFile\Bisoft.Consultorio.Infraestructura.FlatFile.csproj", "{309F4673-C421-4649-BC68-748D1BF497F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Infraestructura.SQLite", "Bisoft.Consultorio.Infraestructura.SQLite\Bisoft.Consultorio.Infraestructura.SQLite.csproj", "{48B9D8A7-90E3-41EB-82EE-15B4133A2F38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Infraestructura.SQLite", "Bisoft.Consultorio.Infraestructura.SQLite\Bisoft.Consultorio.Infraestructura.SQLite.csproj", "{48B9D8A7-90E3-41EB-82EE-15B4133A2F38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Infraestructura.SQLServer", "Bisoft.Consultorio.Infraestructura.SQLServer\Bisoft.Consultorio.Infraestructura.SQLServer.csproj", "{0947D189-87D6-4F14-AF81-A6B5BEA1D933}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisoft.Consultorio.Infraestructura.SQLServer", "Bisoft.Consultorio.Infraestructura.SQLServer\Bisoft.Consultorio.Infraestructura.SQLServer.csproj", "{0947D189-87D6-4F14-AF81-A6B5BEA1D933}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Presentacion.NetFramework", "Bisoft.Consultorio.Presentacion.NetFramework\Bisoft.Consultorio.Presentacion.NetFramework.csproj", "{77C7A827-27DC-43AB-AA27-4A930350DBCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.API", "Bisoft.Consultorio.API\Bisoft.Consultorio.API.csproj", "{9C1EF5D6-1401-4BFC-AE7B-C1E60B0547A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisoft.Consultorio.Infraestructura", "Bisoft.Consultorio.Infraestructura\Bisoft.Consultorio.Infraestructura.csproj", "{D7BDDA93-1EC4-4FEF-8DED-95AB38A3AF16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{77C7A827-27DC-43AB-AA27-4A930350DBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C7A827-27DC-43AB-AA27-4A930350DBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C7A827-27DC-43AB-AA27-4A930350DBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1EF5D6-1401-4BFC-AE7B-C1E60B0547A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1EF5D6-1401-4BFC-AE7B-C1E60B0547A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1EF5D6-1401-4BFC-AE7B-C1E60B0547A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1EF5D6-1401-4BFC-AE7B-C1E60B0547A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BDDA93-1EC4-4FEF-8DED-95AB38A3AF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BDDA93-1EC4-4FEF-8DED-95AB38A3AF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BDDA93-1EC4-4FEF-8DED-95AB38A3AF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BDDA93-1EC4-4FEF-8DED-95AB38A3AF16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

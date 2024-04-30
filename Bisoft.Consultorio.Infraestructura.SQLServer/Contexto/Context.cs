@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Presentacion.Entidades;
+﻿using BISoft.Consultorio.Infraestructura.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
-    public class ClientesMSSQLRepository : IClientesRepository
+    public class ClientesRepository : IClientesRepository
     {
 
         private Context _context;
 
 
         //Crear contructor
-        public ClientesMSSQLRepository()
+        public ClientesRepository(Context context)
         {
             //Inicializar el contexto
-            _context = new Context();
+            _context = context;
         }
 
 

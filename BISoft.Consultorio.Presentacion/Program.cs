@@ -1,4 +1,4 @@
-namespace BISoft.Consultorio.Presentacion
+namespace BISoft.Consultorio.Infraestructura
 {
     internal static class Program
     {

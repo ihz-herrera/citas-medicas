@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Presentacion.Entidades;
+﻿using BISoft.Consultorio.Infraestructura.Entidades;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Presentacion.Repositorios
+namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
     //Repositorio Generico
     public class Repository <TEntity>

@@ -1,34 +1,38 @@
-﻿using BISoft.Consultorio.Presentacion.Contratos;
-using BISoft.Consultorio.Presentacion.Repositorios;
+﻿using BISoft.Consultorio.Infraestructura.Contratos;
+using BISoft.Consultorio.Infraestructura.Repositorios;
+using BISoft.Consultorio.Infraestructura.SQLServer.Contexto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Presentacion.Fabricas
+namespace BISoft.Consultorio.Infraestructura.Fabricas
 {
-    public class ClientesContextFabrik
+    public static class ClientesContextFabrik
     {
+        private static readonly Context _context;
+      
+
 
         public static IClientesRepository CrearClientesRespository(string bdType = "Txt")
         {
              switch (bdType)
             {
                 case "Lite":
-                     return new ClientesLiteRepository();
+                     return new ClientesRepository(_context);
                 case "Txt":
-                     return new ClientesTxtRepository();
+                     return new ClientesRepository(_context);
                 case "MSSQL":
-                    return new ClientesMSSQLRepository();
+                    return new ClientesRepository(_context);
                 default:
-                    return new ClientesLiteRepository();
+                    return new ClientesRepository(_context);
             };
         }
 
         public static IDoctoresRepository CrearDoctoresSQLRepository()
         {
-            return new DoctoresLiteRepository();
+            return new DoctoresRepository(_context);
         }
 
 

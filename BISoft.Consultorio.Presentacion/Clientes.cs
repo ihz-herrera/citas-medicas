@@ -1,6 +1,6 @@
 ﻿using Bisoft.Consultorio.Aplicacion.Servicio;
 
-namespace BISoft.Consultorio.Presentacion
+namespace BISoft.Consultorio.Infraestructura
 {
     public partial class Clientes : Form
     {
