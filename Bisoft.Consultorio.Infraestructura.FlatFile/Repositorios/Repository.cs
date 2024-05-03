@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,14 +19,14 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
         }
 
 
-        public void Guardar(TEntity entidad)
+        public async Task Guardar(TEntity entidad)
         {
             var tipo = entidad.GetType().Name;
 
             using (System.IO.StreamWriter file =
                             new System.IO.StreamWriter($"{_path}//{tipo}.txt", true))
             {
-                file.WriteLine(entidad.ToString());
+               await file.WriteLineAsync(entidad.ToString());
             }
         }
 

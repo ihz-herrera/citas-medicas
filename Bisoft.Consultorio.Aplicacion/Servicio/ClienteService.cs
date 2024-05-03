@@ -1,6 +1,6 @@
-﻿using BISoft.Consultorio.Infraestructura.Contratos;
-using BISoft.Consultorio.Infraestructura.Entidades;
-using BISoft.Consultorio.Infraestructura.Fabricas;
+﻿using BISoft.Consultorio.Dominio.Contratos;
+using BISoft.Consultorio.Dominio.Entidades;
+using BISoft.Consultorio.Aplicacion.Fabricas;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -19,9 +19,9 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
             _repo = repositorio;
         }
 
-        public List<Cliente> CargarClientes()
+        public async Task<List<Cliente>> CargarClientes()
         {
-            return _repo.CargarClientes();
+            return  await _repo.CargarClientes();
         }
 
 
@@ -33,10 +33,10 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
         }
 
 
-        public Cliente GuardarCliente(string nombre, string email, int edad)
+        public async Task<Cliente> GuardarCliente(string nombre, string email, int edad)
         {
             //Cargar Clientes en una coleccion
-            var clientes = _repo.CargarClientes();
+            var clientes = await _repo.CargarClientes();
 
             //Validar que el cliente no exista
             if (clientes.Any(c => c.Email == email))
@@ -57,7 +57,7 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
             var cliente = new Cliente(id,nombre, email, edad);
 
             //Guardar el cliente
-            _repo.Guardar(cliente);
+            await _repo.Guardar(cliente);
 
             return cliente;
 

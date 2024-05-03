@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bisoft.Consultorio.Presentacion.Servicios;
+using System;
 using System.Windows.Forms;
 
 namespace Bisoft.Consultorio.Presentacion.NetFramework
@@ -19,7 +13,11 @@ namespace Bisoft.Consultorio.Presentacion.NetFramework
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var servicio = new ClienteService();
+            var servicio = new ClientesService();
+
+            var clietes = servicio.ConsultarClientes();
+
+
 
             servicio.GuardarCliente("Juan", "r", 25);
         }

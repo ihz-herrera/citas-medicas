@@ -12,8 +12,9 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj" />
-  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Bisoft.Consultorio.Dominio\Bisoft.Consultorio.Dominio.csproj" />
+	</ItemGroup>
 
 </Project>

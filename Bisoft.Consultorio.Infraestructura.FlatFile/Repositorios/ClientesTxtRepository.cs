@@ -1,5 +1,5 @@
-﻿using BISoft.Consultorio.Infraestructura.Contratos;
-using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Contratos;
+using BISoft.Consultorio.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
         //    }
         //}
 
-        public List<Cliente> CargarClientes()
+        public async Task<List<Cliente>> CargarClientes()
         {
 
             var clientes = new List<Cliente>();
@@ -40,7 +40,7 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
                                            new StreamReader(_path))
             {
                 string line;
-                while ((line = file.ReadLine()) != null)
+                while ((line = await file.ReadLineAsync()) != null)
                 {
                     
                     var datos = line.Split(',');

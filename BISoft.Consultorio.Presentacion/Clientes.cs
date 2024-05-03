@@ -1,4 +1,5 @@
-﻿using Bisoft.Consultorio.Aplicacion.Servicio;
+﻿
+using Bisoft.Consultorio.Presentacion.Servicios;
 
 namespace BISoft.Consultorio.Infraestructura
 {
@@ -6,21 +7,21 @@ namespace BISoft.Consultorio.Infraestructura
     {
 
 
-        private ClienteService _clienteService;
+        private ClientesService _clienteService;
 
         public Clientes()
         {
             InitializeComponent();
-            _clienteService = new ClienteService("Txt");
+            _clienteService = new ClientesService();
         }
 
-        private void Clientes_Load(object sender, EventArgs e)
+        private async void Clientes_Load(object sender, EventArgs e)
         {
 
             try
             {
-                var listaClientes = _clienteService.CargarClientes();
-                dataGridView1.DataSource = listaClientes;
+                //var listaClientes = _clienteService.CargarClientes();
+                dataGridView1.DataSource = await _clienteService.ConsultarClientes();
             }
             catch (Exception ex)
             {

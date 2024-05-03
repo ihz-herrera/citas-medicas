@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Entidades;
 using BISoft.Consultorio.Infraestructura.Repositorios;
 using System;
 using System.Collections.Generic;

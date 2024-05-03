@@ -1,6 +1,6 @@
-﻿using BISoft.Consultorio.Infraestructura.SQLServer.Contexto;
-using BISoft.Consultorio.Infraestructura.Contratos;
-using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Infraestructura.Contexto;
+using BISoft.Consultorio.Dominio.Contratos;
+using BISoft.Consultorio.Dominio.Entidades;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;

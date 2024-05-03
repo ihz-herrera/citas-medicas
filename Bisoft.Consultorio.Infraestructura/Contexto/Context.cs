@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Infraestructura.SQLServer.Contexto
+namespace BISoft.Consultorio.Infraestructura.Contexto
 {
     public class Context: DbContext
     {

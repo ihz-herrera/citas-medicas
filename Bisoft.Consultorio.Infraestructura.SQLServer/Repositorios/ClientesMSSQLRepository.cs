@@ -1,11 +1,12 @@
 ﻿using BISoft.Consultorio.Infraestructura.SQLServer.Contexto;
-using BISoft.Consultorio.Infraestructura.Contratos;
-using BISoft.Consultorio.Infraestructura.Entidades;
+using BISoft.Consultorio.Dominio.Contratos;
+using BISoft.Consultorio.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
@@ -25,19 +26,19 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
 
 
 
-        public List<Cliente> CargarClientes()
+        public async Task<List<Cliente>> CargarClientes()
         {
 
-            var clientes = _context.Clientes.ToList();
+            var clientes = await _context.Clientes.ToListAsync();
 
             return clientes;
         }
 
-        public void Guardar(Cliente cliente)
+        public async Task Guardar(Cliente cliente)
         {
             _context.Clientes.Add(cliente);
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
     }

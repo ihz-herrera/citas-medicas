@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bisoft.Consultorio.Aplicacion.Dtos
+namespace Bisoft.Consultorio.Presentacion.NetFramework.Modelos
 {
-    public record ClienteCreate
+    public class Cliente
     {
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
-        public int Edad { get; set; }
-
-       
     }
 }

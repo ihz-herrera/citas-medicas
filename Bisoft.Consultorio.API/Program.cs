@@ -1,7 +1,7 @@
 using Bisoft.Consultorio.Aplicacion.Servicio;
-using BISoft.Consultorio.Infraestructura.Contratos;
+using BISoft.Consultorio.Dominio.Contratos;
 using BISoft.Consultorio.Infraestructura.Repositorios;
-using BISoft.Consultorio.Infraestructura.SQLServer.Contexto;
+using BISoft.Consultorio.Infraestructura.Contexto;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

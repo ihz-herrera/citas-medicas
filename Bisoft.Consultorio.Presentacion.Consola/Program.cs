@@ -1,8 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using Bisoft.Consultorio.Aplicacion.Servicio;
-using BISoft.Consultorio.Infraestructura.Entidades;
+
+using Bisoft.Consultorio.Presentacion.Servicios;
 
 Console.WriteLine("Hello, World!");
 
@@ -10,7 +10,7 @@ Console.WriteLine("Hello, World!");
 try
 {
 
-    var servicio = new ClienteService("MSSQL");
+    var servicio = new ClientesService();
 	servicio.GuardarCliente( "Ivanhh", "kj@",25 );
 
   

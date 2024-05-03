@@ -1,4 +1,4 @@
-﻿using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bisoft.Consultorio.API.Controllers

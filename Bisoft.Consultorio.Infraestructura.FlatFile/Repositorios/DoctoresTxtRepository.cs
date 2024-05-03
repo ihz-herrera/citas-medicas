@@ -1,5 +1,5 @@
-﻿using BISoft.Consultorio.Infraestructura.Contratos;
-using BISoft.Consultorio.Infraestructura.Entidades;
+﻿using BISoft.Consultorio.Dominio.Contratos;
+using BISoft.Consultorio.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +56,9 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
             return doctores;
         }
 
-
+        void IDoctoresRepository.Guardar(Doctor doctor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

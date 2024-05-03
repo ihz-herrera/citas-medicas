@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BISoft.Consultorio.Infraestructura.Entidades
+namespace BISoft.Consultorio.Dominio.Entidades
 {
     public class Cita
     {
