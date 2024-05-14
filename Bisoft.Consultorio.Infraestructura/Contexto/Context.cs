@@ -13,6 +13,7 @@ namespace BISoft.Consultorio.Infraestructura.Contexto
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Doctor> Doctores { get; set; }
+        public DbSet<Cita> Citas { get; set; }
 
        
         public Context(DbContextOptions options):base(options)
@@ -25,8 +26,19 @@ namespace BISoft.Consultorio.Infraestructura.Contexto
         {
             modelBuilder.Entity<Cliente>().ToTable("Clientes");
             modelBuilder.Entity<Doctor>().ToTable("Doctores");
+            modelBuilder.Entity<Cita>().ToTable("Citas");
+
             modelBuilder.Entity<Cliente>().HasKey(c => c.Id);   
             modelBuilder.Entity<Doctor>().HasKey(d => d.Cedula);
+
+            //Configurar forengkey de clientes y citas
+            modelBuilder.Entity<Cita>()
+                .HasOne(c => c.Cliente)
+                .WithMany(c => c.Citas)
+                .HasForeignKey(c => c.ClienteId);
+            
+
+
         }
 
 

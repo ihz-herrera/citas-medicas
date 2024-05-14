@@ -15,6 +15,8 @@ namespace BISoft.Consultorio.Dominio.Entidades
         public string Email { get; set; }
         public string Telefono { get; set; }
 
+        public virtual List<Cita> Citas { get; set; }
+
 
        
 

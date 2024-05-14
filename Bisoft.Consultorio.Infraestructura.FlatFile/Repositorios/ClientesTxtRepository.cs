@@ -59,5 +59,14 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
             return clientes;
         }
 
+        public Task<Cliente> ClienteById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
         //    }
         //}
 
-        public List<Doctor> CargarDoctores()
+        public async Task<List<Doctor>> CargarDoctores()
         {
 
             var doctores = new List<Doctor>();
@@ -42,7 +42,7 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
                                            new StreamReader(_path))
             {
                 string line;
-                while ((line = file.ReadLine()) != null)
+                while ((line = await file.ReadLineAsync()) != null)
                 {
                     var datos = line.Split(',');
                     var doctor = new Doctor(datos[0],
@@ -56,7 +56,7 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
             return doctores;
         }
 
-        void IDoctoresRepository.Guardar(Doctor doctor)
+        public Task<Doctor> DoctorById(string cedula)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using BISoft.Consultorio.Dominio.Contratos;
+﻿using Azure.Core;
+using BISoft.Consultorio.Dominio.Contratos;
 using BISoft.Consultorio.Dominio.Entidades;
 using BISoft.Consultorio.Infraestructura.Repositorios;
 using System;
@@ -18,14 +19,15 @@ namespace Bisoft.Consultorio.Aplicacion.Servicio
             _repo = repository;
         }
 
-        public List<Doctor> CargarDoctores()
+        public async  Task<List<Doctor>> CargarDoctores()
         {
-            return _repo.CargarDoctores();
+            return await _repo.CargarDoctores();
         }
 
-        public void GuardarDoctor(Doctor doctor)
+        public async Task<Doctor> GuardarDoctor(Doctor doctor)
         {
-            _repo.Guardar(doctor);
+            await _repo.Guardar(doctor);
+            return doctor;
         }
     }
 }

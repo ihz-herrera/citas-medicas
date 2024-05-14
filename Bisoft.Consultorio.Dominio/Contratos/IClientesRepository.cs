@@ -9,8 +9,9 @@ namespace BISoft.Consultorio.Dominio.Contratos
 {
     public interface IClientesRepository
     {
-
+        Task<Cliente> ClienteById(int id);
         Task Guardar(Cliente cliente);
         Task<List<Cliente>> CargarClientes();
+        Task SaveChanges();
     }
 }

@@ -10,8 +10,8 @@ namespace BISoft.Consultorio.Dominio.Contratos
     public interface IDoctoresRepository
     {
 
-        void Guardar(Doctor doctor);
-        List<Doctor> CargarDoctores();  
-
+        Task Guardar(Doctor doctor);
+        Task<List<Doctor>> CargarDoctores();
+        Task<Doctor> DoctorById(string cedula);
     }
 }

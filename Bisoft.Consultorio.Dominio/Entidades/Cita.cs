@@ -10,9 +10,13 @@ namespace BISoft.Consultorio.Dominio.Entidades
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
-        public Cliente Cliente { get; set; }
-        public Doctor Doctor { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Doctor Doctor { get; set; }
 
        
+        public int ClienteId { get; set; }
+        public string DoctorCedula { get; set; }
+        public Cita() { }
+
     }
 }

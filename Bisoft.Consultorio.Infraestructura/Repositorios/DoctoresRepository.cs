@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BISoft.Consultorio.Infraestructura.Repositorios
 {
@@ -20,16 +21,22 @@ namespace BISoft.Consultorio.Infraestructura.Repositorios
             _context = context;
         }
 
-        public List<Doctor> CargarDoctores()
+        public async Task<List<Doctor>> CargarDoctores()
         {
-            var doctores = _context.Doctores.ToList();
+            var doctores = await _context.Doctores.ToListAsync();
             return doctores;
         }
 
-        public void Guardar(Doctor doctor)
+        public async Task<Doctor> DoctorById(string cedula)
         {
-            _context.Doctores.Add(doctor);
-            _context.SaveChanges();
+            return await _context.Doctores
+                .FirstOrDefaultAsync(d=>d.Cedula == cedula); 
+        }
+
+        public async Task Guardar(Doctor doctor)
+        {
+            await _context.Doctores.AddAsync(doctor);
+            await _context.SaveChangesAsync();
         }
     }
 }

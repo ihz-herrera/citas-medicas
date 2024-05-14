@@ -24,7 +24,7 @@ namespace BISoft.Consultorio.Infraestructura
         }
 
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private async void btnGuardar_Click_1(object sender, EventArgs e)
         {
 
 
@@ -57,7 +57,7 @@ namespace BISoft.Consultorio.Infraestructura
 
 
             //Leer el archivo
-            var listaDoctores = _repo.CargarDoctores();
+            var listaDoctores = await _repo.CargarDoctores();
 
             var existe = listaDoctores
                 .Any(x => x.Cedula == doctor.Cedula);
@@ -67,7 +67,7 @@ namespace BISoft.Consultorio.Infraestructura
                 return;
             }
 
-            _repo.Guardar(doctor);
+            await _repo.Guardar(doctor);
 
             LimpiarControles();
 
